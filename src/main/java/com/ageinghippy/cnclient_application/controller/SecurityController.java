@@ -37,6 +37,11 @@ public class SecurityController {
         return "login";
     }
 
+    @GetMapping("/sign-out")
+    public String signOut() {
+        return "/logout";
+    }
+
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String customLogout(HttpServletRequest request, HttpServletResponse response) {
         // Get the Spring Authentication object of the current request.

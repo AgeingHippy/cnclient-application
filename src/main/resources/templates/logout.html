@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>MICROSERVICE CLIENT APPLICATION</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div align="center">
+
+        <h1>Are you sure you wish to sign out?</h1>
+        <br/><br/>
+        <a th:href="@{/logout}">Sign Out</a>
+        <br/><br/>
+        <a th:href="@{/homepage}">Cancel</a>
+
+
+    </div>
+
+</div>
+</body>
+</html>

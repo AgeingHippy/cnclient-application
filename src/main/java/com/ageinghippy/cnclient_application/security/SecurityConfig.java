@@ -24,7 +24,7 @@ public class SecurityConfig {
 //                .formLogin(Customizer.withDefaults());
                 .formLogin(login -> login.loginPage("/login").permitAll() //ToDo - should this only be for anonymous?
                         .defaultSuccessUrl("/homepage", true))
-                .logout(logout -> logout.logoutUrl("/logout"));
+                .logout(logout -> logout.logoutUrl("/sign-out"));
         return http.build();
     }
 

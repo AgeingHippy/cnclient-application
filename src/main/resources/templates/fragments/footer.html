@@ -9,7 +9,7 @@
             <p>
                 <span sec:authorize="isAuthenticated()">
                 Logged in user: <b>[[${#authentication.name}]]</b>
-                <a th:href="@{/logout}">Sign Out</a>
+                <a th:href="@{/sign-out}">Sign Out</a>
                 </span>
                 <span sec:authorize="!isAuthenticated()">
                 Logged in user: <b>[[${#authentication.name}]]</b>

@@ -32,7 +32,7 @@
 
 
                     <li sec:authorize="isAuthenticated()" class="active">
-                        <a th:href="@{/logout}">logout</a>
+                        <a th:href="@{/sign-out}">logout</a>
                     </li>
                     <li sec:authorize="!isAuthenticated()" class="active">
                         <a th:href="@{/login}">login</a>
