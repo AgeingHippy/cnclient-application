@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<body>
+<th:block th:fragment="header">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{images/car.jpg}" alt="customer website logo" width="60" height="30"/>
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                    <li sec:authorize="hasRole('ADMIN')" class="active">
+                        <a th:href="@{/customer/list}">customers</a>
+                    </li>
+                    <li sec:authorize="hasRole('ADMIN')" class="active">
+                        <a th:href="@{/car/view}">cars</a>
+                    </li>
+                    <li sec:authorize="hasRole('ADMIN')" class="active">
+                        <a th:href="@{/batch/jobs}">Batch Jobs</a>
+                    </li>
+
+                    <li sec:authorize="!hasRole('ADMIN') and hasRole('USER')" class="active">
+                        <a th:href="@{/customer/view}">customers</a>
+                    </li>
+
+
+
+                    <li sec:authorize="isAuthenticated()" class="active">
+                        <a th:href="@{/logout}">logout</a>
+                    </li>
+                    <li sec:authorize="!isAuthenticated()" class="active">
+                        <a th:href="@{/login}">login</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</th:block>
+</body>
+</html>

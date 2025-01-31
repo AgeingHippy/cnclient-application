@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>MICROSERVICE CLIENT APPLICATION</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div class="container" align="center">
+        <h1>Client App Options</h1>
+        <br/>
+        <span sec:authorize="isAuthenticated()">
+            <span sec:authorize="hasRole('ADMIN')">
+                <br/>
+                <a th:href="@{/dummy}">Dummy Admin Action</a>
+            </span>
+            <span sec:authorize="hasRole('USER')">
+                <br/>
+                <a th:href="@{/items}">View Items</a>
+                <br/>
+                <a th:href="@{/cart}">View Cart</a>
+            </span>
+        </span>
+
+        <span sec:authorize="!isAuthenticated()">
+        <br>
+        <a th:href="@{/login}">Login</a>
+        <br>
+        <a th:href="@{/register}">Create an account</a>
+        </span>
+
+    </div>
+
+</div>
+</body>
+</html>
