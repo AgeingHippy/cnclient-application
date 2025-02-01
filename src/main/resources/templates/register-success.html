@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>MICROSERVICE CLIENT APPLICATION</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+
+    <div align="center">
+        <h1>Registration Successful</h1>
+
+        <p th:text="'username : ${#user.username}"/>
+        <p th:text="'password : ${#user.password}"/>
+        <p th:text="'email : ${#user.email}"/>
+        <p th:text="'fullName : ${#user.fullName}"/>
+        <br/>
+        <a class="btn btn-default btn-large" th:href="@{/login}">Login</a>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>MICROSERVICE CLIENT APPLICATION</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div align="center">
+        <h1>Registration Failure</h1>
+        <br/>
+        <p th:text="${error}">errorText</p>
+        <br/>
+        <a class="btn btn-primary btn-large" th:href="@{/register}">Try again</a>
+    </div>
+
+</div>
+</body>
+</html>

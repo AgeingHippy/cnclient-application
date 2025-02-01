@@ -26,10 +26,24 @@ public class SecurityController {
     }
 
     @PostMapping("/register")
-    public String registerNewUser(@ModelAttribute User user) {
-        userService.createUser(user);
+    public String registerNewUser(@ModelAttribute User user, Model model) {
+        String view;
+        try {
+            user = userService.createUser(user);
+            view = "register-success";
+        } catch (Exception e) {
+            model.addAttribute("error",e.getMessage());
+            view = "register-failure";
+        }
 
-        return "redirect :/login";
+        return view;
+    }
+
+    @GetMapping("/register-success")
+    public String displayRegisterSuccess(Model model, Authentication authentication) {
+        model.addAttribute("user",authentication.getPrincipal());
+
+        return "register-success";
     }
 
     @GetMapping("/login")

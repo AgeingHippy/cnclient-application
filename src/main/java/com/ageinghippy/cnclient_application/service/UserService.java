@@ -1,24 +1,21 @@
 package com.ageinghippy.cnclient_application.service;
 
 import com.ageinghippy.cnclient_application.dto.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-
+@RequiredArgsConstructor
 @Service
 public class UserService {
 
-    @Autowired
     @LoadBalanced
-    RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public User getUser(String userName) {
         ResponseEntity<User> response =

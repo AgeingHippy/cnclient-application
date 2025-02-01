@@ -19,17 +19,19 @@
             </span>
             <span sec:authorize="hasRole('USER')">
                 <br/>
-                <a th:href="@{/items}">View Items</a>
+                <a class="btn btn-warning btn-large" th:href="@{/items}">View Items</a>
                 <br/>
-                <a th:href="@{/cart}">View Cart</a>
+                <br/>
+                <a class="btn btn-warning btn-large" th:href="@{/cart}">View Cart</a>
             </span>
         </span>
 
         <span sec:authorize="!isAuthenticated()">
-        <br>
-        <a th:href="@{/login}">Login</a>
-        <br>
-        <a th:href="@{/register}">Create an account</a>
+            <br>
+            <a class="btn btn-warning btn-large" th:href="@{/login}">Login</a>
+            <br/>
+            <br/>
+            <a class="btn btn-warning btn-large" th:href="@{/register}">Create an account</a>
         </span>
 
     </div>

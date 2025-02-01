@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class User {
     @JsonProperty("userId")
-    @JsonAlias("id")
+    @JsonAlias("id") //todo is this strictly necessary?
     private Long id;
     private String username;
     private String password;

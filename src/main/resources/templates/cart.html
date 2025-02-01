@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>MICROSERVICE CLIENT APPLICATION</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div class="container" align="center">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">CartItem Id</th>
+                <th scope="col">Item Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${items.empty}">
+                <td>Your cart is empty</td>
+            </tr>
+            <tr th:each="cartItem : ${items}">
+                <th scope="row" th:text="${cartItem.id}"></th>
+                <td th:text="${cartItem.item.id}"></td>
+                <td th:text="${cartItem.item.name}"></td>
+                <td th:text="${cartItem.item.description}"></td>
+                <td th:text="${cartItem.amount}"></td>
+                <td>
+                    <a class="btn btn-warning" th:href="|@{/cart/add-item/}${cartItem.item.id}|">+</a>
+                    <a class="btn btn-warning" th:href="|@{/cart/remove-item/}${cartItem.item.id}|">-</a>
+                    <a class="btn btn-danger" th:href="|@{/cart/remove-cart-item/}${cartItem.id}|">Remove</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

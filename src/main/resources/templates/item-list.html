@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Customer Website Homepage</title>
@@ -19,13 +20,13 @@
             </thead>
             <tbody>
             <tr th:if="${items.empty}">
-                <td>0</td>
+                <td>No items found</td>
             </tr>
             <tr th:each="item : ${items}">
                 <th scope="row" th:text="${item.id}"></th>
                 <td th:text="${item.name}"></td>
                 <td th:text="${item.description}"></td>
-                <td><a th:href="@{/cart/userId}" class="btn btn-primary">Add</a></td>
+                <td><a th:href="|@{/cart/add-item/}${item.id}|" class="btn btn-primary">Add</a></td>
             </tr>
             </tbody>
         </table>
